@@ -15,8 +15,8 @@ const Footer = () => {
                         </a>
                         <p className="pt-9">Get ready to embark on a thrilling journey through the world of miniature automobiles. <br /> Start exploring our website today and let your imagination hit the accelerator!</p>
                     </div>
-                    <div className="grid grid-cols-1 gap-2 sm:gap-6 sm:grid-cols-3 justify-center ">
-                        <div>
+                    <div className="grid grid-cols-1 gap-2 sm:gap-6 sm:grid-cols-3  ">
+                        <div className="m-0 md:mx-auto">
                             <h2 className="mb-6 text-xl font-semibold  uppercase dark:text-white">STORE INFORMATION</h2>
                             <ul className=" dark:text-gray-400 font-medium">
                                 <li className="mb-4 flex gap-2  items-center" >
@@ -41,8 +41,8 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div>
-                            <h2 className="mb-6 text-xl font-semibold  uppercase dark:text-white">About</h2>
+                        <div  className="m-0 md:mx-auto">
+                            <h2 className="mb-6 mt-6 md:mt-0 text-xl font-semibold  uppercase dark:text-white">About</h2>
                             <ul className=" dark:text-gray-400 font-medium">
                                 <li className="pb-2">
                                     <a href="https://github.com/themesberg/flowbite" className="hover:underline ">About Us</a>
@@ -65,8 +65,8 @@ Best Sales */}
                                 </li>
                             </ul>
                         </div>
-                        <div>
-                            <h2 className="mb-6 text-xl font-semibold  uppercase dark:text-white">OUR COMPANY</h2>
+                        <div  className="m-0 md:mx-auto">
+                            <h2 className="mb-6 mt-6 md:mt-0 text-xl font-semibold  uppercase dark:text-white">OUR COMPANY</h2>
                             <ul className=" dark:text-gray-400 font-medium">
                                                <li className="pb-2">
                                     <a href="#" className="hover:underline">Delivery</a>

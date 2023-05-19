@@ -6,6 +6,10 @@ import Home from "../Pages/Home/Home/Home";
 import AccountLayout from "../Layouts/AccountLayout";
 import LogIn from "../Pages/Account/LogIn";
 import Register from "../Pages/Account/Register";
+import AllToy from "../Pages/AllToy/AllToy";
+import PrivateRoute from "./PrivateRoute";
+import MyToys from "../Pages/MyToys/MyToys";
+import AddAToy from "../Pages/AddAToy/AddAToy";
 
 
 
@@ -19,6 +23,18 @@ import Register from "../Pages/Account/Register";
             {
               path:"/",
               element:<Home></Home>   
+            },
+            {
+              path:"/alltoy",
+              element:<PrivateRoute><AllToy></AllToy></PrivateRoute>   
+            },
+            {
+              path:"/mytoys",
+              element:<PrivateRoute><MyToys></MyToys></PrivateRoute>   
+            },
+            {
+              path:"/addtoy",
+              element:<PrivateRoute><AddAToy></AddAToy></PrivateRoute>   
             }
           ]
         },

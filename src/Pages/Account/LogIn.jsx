@@ -7,12 +7,13 @@ import { ToastContainer, toast } from 'react-toastify';
 const LogIn = () => {
 
 const {logInByGoogle,logInByEmailPassword}=useContext(authContext)
+const navigate =useNavigate()
 
+const location = useLocation();
 
+ const from = location.state?.from?.pathname || "/"
 
-
-
-
+console.log("from",from);
   const handleGoogleLogIn =()=>{
     logInByGoogle()
     .then((result) => {
@@ -31,7 +32,7 @@ const {logInByGoogle,logInByEmailPassword}=useContext(authContext)
         progress: undefined,
         theme: "dark",
         });
-      
+        navigate(from, { replace: true })
       // ...
     }).catch((error) => {
   console.log(error);
@@ -64,6 +65,8 @@ const handleLogIn=(e)=>{
       progress: undefined,
       theme: "dark",
       });
+      navigate(from, { replace: true })
+    console.log( "navigate", navigate(from));
   })
   .catch((error) => {
     // const errorCode = error.code;

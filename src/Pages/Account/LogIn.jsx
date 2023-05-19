@@ -13,7 +13,7 @@ const location = useLocation();
 
  const from = location.state?.from?.pathname || "/"
 
-console.log("from",from);
+// console.log("from",from);
   const handleGoogleLogIn =()=>{
     logInByGoogle()
     .then((result) => {

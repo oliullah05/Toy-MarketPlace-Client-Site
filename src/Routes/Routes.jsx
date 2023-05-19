@@ -10,6 +10,7 @@ import AllToy from "../Pages/AllToy/AllToy";
 import PrivateRoute from "./PrivateRoute";
 import MyToys from "../Pages/MyToys/MyToys";
 import AddAToy from "../Pages/AddAToy/AddAToy";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 
 
@@ -35,6 +36,10 @@ import AddAToy from "../Pages/AddAToy/AddAToy";
             {
               path:"/addtoy",
               element:<PrivateRoute><AddAToy></AddAToy></PrivateRoute>   
+            },
+            {
+              path:"/update/:id",
+              element:<PrivateRoute> <UpdateToy></UpdateToy>  </PrivateRoute>   
             }
           ]
         },

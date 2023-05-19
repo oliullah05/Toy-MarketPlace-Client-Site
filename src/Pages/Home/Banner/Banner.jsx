@@ -26,6 +26,7 @@ const Banner = () => {
     //     <img className="w-full h-full object-contain max-h-96 md:max-h-none" src={banner3} alt="Banner 3" />
     //   </div>
     // </AutoplaySlider>
+    /*md:h-[78vh] h-[40vh]*/
 <AutoplaySlider
   play={true}
   cancelOnInteraction={false} // should stop playing on user interaction

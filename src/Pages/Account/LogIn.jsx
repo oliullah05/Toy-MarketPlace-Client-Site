@@ -1,12 +1,95 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { authContext } from '../../Providers/AuthProviders';
+import { ToastContainer, toast } from 'react-toastify';
 
 const LogIn = () => {
+
+const {logInByGoogle,logInByEmailPassword}=useContext(authContext)
+
+
+
+
+
+
+  const handleGoogleLogIn =()=>{
+    logInByGoogle()
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      // const credential = GoogleAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
+      // The signed-in user info.
+      console.log(result);
+      toast.success('🦄 User Succeccfully Logged In', {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+      
+      // ...
+    }).catch((error) => {
+  console.log(error);
+    });
+  
+  }
+  
+
+
+
+
+const handleLogIn=(e)=>{
+  e.preventDefault()
+
+  
+  const form = e.target;
+  const email = form.email.value;
+  const password = form.password.value;
+  logInByEmailPassword(email,password)
+  .then(() => {
+    // Signed in 
+    // const user = userCredential.user;
+    toast.success('🦄 User Succeccfully Logged In', {
+      position: "top-center",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  })
+  .catch((error) => {
+    // const errorCode = error.code;
+    const errorMessage = error.message;
+    toast.error(`${errorMessage}`, {
+      position: "top-center",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  });
+
+
+}
+
+
+
     return (
         <div className="py-6 lg:py-24">
+           <ToastContainer />
         <div className="bg-white rounded-lg shadow-lg mx-auto max-w-sm lg:max-w-xl">
-          <form className="w-full p-8">
+          <form onSubmit={handleLogIn} className="w-full p-8">
             <h1 className="text-2xl text-purple-900 text-center">Please Login!</h1>
             <div className="mt-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
@@ -37,7 +120,7 @@ const LogIn = () => {
                         </p>
                 }
             </div> */}
-              <div className="flex flex-col lg:flex-row gap-3">
+              {/* <div className="flex flex-col lg:flex-row gap-3">
               <button className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md bg-blue-500">
                 <FaGoogle className="text-white" />
                 <span className="py-3 text-center text-white font-bold">Google</span>
@@ -46,8 +129,18 @@ const LogIn = () => {
                 <FaGithub className="text-white" />
                 <span className="py-3 text-center text-white font-bold">Github</span>
               </button>
-            </div>
+            </div> */}
           </form>
+          <div className="flex flex-col lg:flex-row -mt-7 gap-3 pb-8">
+              <button onClick={handleGoogleLogIn} className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md bg-blue-500">
+                <FaGoogle className="text-white" />
+                <span className="py-3 text-center text-white font-bold">Google</span>
+              </button>
+              <button className="flex gap-2 items-center w-full justify-center mt-4 text-white rounded-lg shadow-md bg-gray-900">
+                <FaGithub className="text-white" />
+                <span className="py-3 text-center text-white font-bold">Github</span>
+              </button>
+            </div>
         </div>
       </div>
       

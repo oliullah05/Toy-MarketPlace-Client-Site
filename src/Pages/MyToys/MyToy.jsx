@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 // import authContext from "../../Providers/AuthProviders.jsx"
 import { authContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
-const MyToy = ({myToy,index}) => {
+const MyToy = ({myToy,index,setToggle,toggle}) => {
 const {user} =useContext(authContext)
 console.log(user);
 
@@ -20,21 +20,28 @@ console.log(user);
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
+
+
             if (result.isConfirmed) {
                   fetch(`http://localhost:5000/alltoys/${id}`,{
-        method:"DELETE"
+                  method:"DELETE"
        })
        .then(res=>res.json())
        .then(results=>{
         if(results.deletedCount>0){
-            Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
+            setToggle(!toggle)
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Product Delete successfully',
+                showConfirmButton: false,
+                timer: 700
+              })
         }
-        console.log(results);
+      
        })
+
+
             }
           })
 

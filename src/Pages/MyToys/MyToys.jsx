@@ -6,7 +6,11 @@ const MyToys = () => {
 const {user}=useContext(authContext)
 
 const [myToys,setMyToys]=useState([])
-console.log(myToys);
+// console.log("mytoys",myToys);
+
+
+const [toggle ,setToggle]=useState(true)
+
 
 useEffect(()=>{
     fetch(`http://localhost:5000/alltoys/${user?.email}`,{
@@ -17,7 +21,7 @@ useEffect(()=>{
         console.log("data",data);
         setMyToys(data);
     })
-},[])
+},[toggle])
 
 
 
@@ -56,7 +60,7 @@ useEffect(()=>{
                     </tr>
                 </thead>
               {
-                myToys.map((myToy,index)=><MyToy myToy={myToy} index={index} key={myToy._id}></MyToy>)
+                myToys.map((myToy,index)=><MyToy toggle={toggle} setToggle={setToggle} myToy={myToy} index={index} key={myToy._id}></MyToy>)
               } 
             </table>
         </div>

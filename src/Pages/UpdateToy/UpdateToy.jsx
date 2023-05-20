@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { authContext } from '../../Providers/AuthProviders.jsx';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateToy = () => {
 
@@ -24,7 +25,30 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
   })
   .then(res=>res.json())
   .then(results=>{
-    console.log(results);
+    console.log(results); 
+    if(results.modifiedCount==0){
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: "You Did't Change Anything",
+        showConfirmButton: false,
+        timer: 700
+      })
+    }
+    if(results.modifiedCount>0){
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: "Product Updated successfully",
+        showConfirmButton: false,
+        timer: 700
+      })
+    }
+
+
+
+
+
   })
   
   
@@ -51,14 +75,14 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
         <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
           Toy Name
         </label>
-        <input {...register("toy_name")} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
+        <input {...register("toy_name")} defaultValue={toy_name} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
 
       </div>
       <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
           Picture URL
         </label>
-        <input {...register("toy_img")} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
+        <input {...register("toy_img")} defaultValue={toy_img} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
 
       </div>
     </section>
@@ -70,7 +94,7 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
         <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
           Category
         </label>
-        <select className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" {...register("category")}>
+        <select className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" {...register("category")} defaultValue={category}>
       <option value="regular-car">regular-car</option>
       <option value="sports-car">sports-car</option>
       <option value="remote-car">remote-car</option>
@@ -81,7 +105,7 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
         <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
           Price
         </label>
-        <input {...register("price")} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
+        <input {...register("price")} defaultValue={price} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
 
       </div>
     </section>
@@ -95,14 +119,14 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
         <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
           Rating
         </label>
-        <input {...register("rating")} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
+        <input {...register("rating")} defaultValue={rating} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
 
       </div>
       <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
           Available quantity
         </label>
-        <input {...register("quantity")} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
+        <input {...register("quantity")} defaultValue={quantity} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
 
       </div>
     </section>
@@ -114,7 +138,7 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
         <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
          Seller Name
         </label>
-        <input {...register("user_name")} value={user?.displayName} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
+        <input {...register("user_name")}  value={user?.displayName} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
 
       </div>
       <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

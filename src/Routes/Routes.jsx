@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyToys from "../Pages/MyToys/MyToys";
 import AddAToy from "../Pages/AddAToy/AddAToy";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import ProductDetails from "../Pages/Home/Products/ProductDetails";
 
 
 
@@ -42,6 +43,12 @@ import UpdateToy from "../Pages/UpdateToy/UpdateToy";
             {
               path:"/update/:id",
               element:<PrivateRoute> <UpdateToy></UpdateToy>  </PrivateRoute>,
+              loader:({params})=>fetch(`http://localhost:5000/singletoy/${params.id}`)
+
+            },
+            {
+              path:"/productdetails/:id",
+              element:<PrivateRoute> <ProductDetails></ProductDetails>  </PrivateRoute>,
               loader:({params})=>fetch(`http://localhost:5000/singletoy/${params.id}`)
 
             }

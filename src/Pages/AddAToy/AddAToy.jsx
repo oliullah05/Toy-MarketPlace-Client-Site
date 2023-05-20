@@ -33,7 +33,7 @@ const {user}= useContext(authContext)
         Swal.fire({
           position: 'top-center',
           icon: 'success',
-          title: 'Product Added successfully',
+          title: 'Product Added Successfully',
           showConfirmButton: false,
           timer: 700
         })

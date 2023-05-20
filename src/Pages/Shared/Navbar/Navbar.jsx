@@ -3,10 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from "../../../Assets/logo.png"
 import PrivateRoute from '../../../Routes/PrivateRoute';
 import { authContext } from '../../../Providers/AuthProviders';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
 const {user,logOut}=useContext(authContext)
-// console.log(logOut);
+console.log(user);
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -25,6 +27,7 @@ const handleLogOut = ()=>{
 
     return (
       <nav className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-400  border-gray-200 dark:bg-gray-900">
+      <Tooltip id="my-tooltip" place='top'/>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <NavLink to="/" className="flex items-center">
           <img src={logo} className="h-8 mr-3" alt="Flowbite Logo" />       
@@ -61,24 +64,27 @@ const handleLogOut = ()=>{
 
 
 
-        <button
-            type="button"
-            className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-            id="user-menu-button"
-            aria-expanded="false"
-            data-dropdown-toggle="user-dropdown"
-            data-dropdown-placement="bottom"
+    { user &&   <Link
+           
           >
             {/* <span className="sr-only">Open user menu</span> */}
            
             {/* logo pic */}
-            <img className="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo" />
+
+           {user.photoURL ? <img data-tooltip-id="my-tooltip"  data-tooltip-content={user.displayName} className="w-10 h-10 rounded-full" src={user.photoURL} alt='user photo' />:
+                    
+           
+<div data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+    <svg className="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+</div>
+
+}
             
            
 
 
 
-          </button>
+          </Link>}
     
         </section>
 

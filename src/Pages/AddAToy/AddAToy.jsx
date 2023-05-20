@@ -1,8 +1,61 @@
 import { useForm } from "react-hook-form";
+import { useContext, useEffect } from "react";
+import { authContext } from "../../Providers/AuthProviders";
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
+// CommonJS
+// const Swal = require('sweetalert2')
 
 const AddAToy = () => {
+ 
+const {user}= useContext(authContext)
+
+
+// console.log(user.photoURL);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data =>{ 
+    data.user_img=`${user.photoURL}`
+    console.log(data)
+  
+  
+    fetch(`http://localhost:5000/alltoys`,{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(data)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      if(data.insertedId){
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Product Added successfully',
+          showConfirmButton: false,
+          timer: 700
+        })
+      }
+    })
+  
+  
+  
+  };
+
+
+
+
+ 
+
+
+
+
+
+
+
+
   return (
     <form className="h-[80vh] container mx-auto  border-lime-500 border-8" onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
@@ -82,14 +135,14 @@ const AddAToy = () => {
           <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
            Seller Name
           </label>
-          <input {...register("user_name")} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
+          <input {...register("user_name")} value={user?.displayName} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" />
 
         </div>
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label className="block text-2xl uppercase tracking-wide text-gray-700  font-bold mb-2" >
           Seller Email
           </label>
-          <input {...register("user_email")} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
+          <input {...register("user_email")} value={user?.email} className="appearance-none block w-full bg-gray-100 text-gray-700 border border-purple-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"  />
 
         </div>
       </section>

@@ -27,11 +27,13 @@ import UpdateToy from "../Pages/UpdateToy/UpdateToy";
             },
             {
               path:"/alltoy",
-              element:<PrivateRoute><AllToy></AllToy></PrivateRoute>   
+              element:<PrivateRoute><AllToy></AllToy></PrivateRoute>  ,
+              loader:()=>fetch("http://localhost:5000/alltoys")  
             },
             {
               path:"/mytoys",
-              element:<PrivateRoute><MyToys></MyToys></PrivateRoute>   
+              element:<PrivateRoute><MyToys></MyToys></PrivateRoute> ,
+               
             },
             {
               path:"/addtoy",

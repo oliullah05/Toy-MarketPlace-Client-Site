@@ -108,6 +108,144 @@ useEffect(()=>{
 
 
 
+        
+
+
+
+        <TabPanel >   
+            
+            
+<div className='grid grid-cols-4 gap-3 justify-between'>
+
+
+
+
+{
+    categoryData.map(category=>
+    <section key={category._id} className="w-full max-w-sm bg-white border border-gray-200   dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg">
+    <a className='flex justify-center items-center'>
+        <img className="p-8 rounded-t-lg h-80 w-[100%]" src={category?.toy_img} alt="product image" />
+    </a>
+    <div className="px-5 pb-5">
+        <a >
+            <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{category?.toy_name}</h5>
+        </a>
+    {/* _id,toy_name,toy_img,price,category,quantity,rating,review,description,user_name,user_email,user_img */}
+
+<div className='flex items-center'>
+    
+    
+    <Rating
+ className='my-5'
+      style={{ maxWidth: 100 }}
+      value={category?.rating}
+      readOnly
+    />
+
+
+
+<p className="ml-2 text-xl font-bold text-gray-900 dark:text-white ">{category?.rating}</p>
+    <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+    <a className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">{category?.review} reviews</a>
+    
+    </div>
+ 
+
+
+        <div className="flex items-center justify-between pt-5">
+            <span className="text-3xl font-bold text-gray-900 dark:text-white">${category?.price}</span>
+            <Link to={`/productdetails/${category?._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
+        </div>
+    </div>
+</section>
+)
+}
+
+
+
+
+
+
+
+
+</div>
+
+   </TabPanel>
+
+
+
+
+
+
+        
+
+
+
+        <TabPanel >   
+            
+            
+<div className='grid grid-cols-4 gap-3 justify-between'>
+
+
+
+
+{
+    categoryData.map(category=>
+    <section key={category._id} className="w-full max-w-sm bg-white border border-gray-200   dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg">
+    <a className='flex justify-center items-center'>
+        <img className="p-8 rounded-t-lg h-80 w-[100%]" src={category?.toy_img} alt="product image" />
+    </a>
+    <div className="px-5 pb-5">
+        <a >
+            <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{category?.toy_name}</h5>
+        </a>
+    {/* _id,toy_name,toy_img,price,category,quantity,rating,review,description,user_name,user_email,user_img */}
+
+<div className='flex items-center'>
+    
+    
+    <Rating
+ className='my-5'
+      style={{ maxWidth: 100 }}
+      value={category?.rating}
+      readOnly
+    />
+
+
+
+<p className="ml-2 text-xl font-bold text-gray-900 dark:text-white ">{category?.rating}</p>
+    <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+    <a className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">{category?.review} reviews</a>
+    
+    </div>
+ 
+
+
+        <div className="flex items-center justify-between pt-5">
+            <span className="text-3xl font-bold text-gray-900 dark:text-white">${category?.price}</span>
+            <Link to={`/productdetails/${category?._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
+        </div>
+    </div>
+</section>
+)
+}
+
+
+
+
+
+
+
+
+</div>
+
+   </TabPanel>
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleToyTable = ({singleData,index}) => {
 
@@ -39,9 +40,9 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
             <td className="px-6 py-4 text-black font-semibold">
                 <a href="" className=" text-black font-semibold dark:text-blue-500 ">$ {price}</a>
             </td>
-            <td className="px-6 py-4">
-                <a className="font-mediumtext-black font-semibold dark:text-blue-500 hover:underline">View details</a>
-            </td>
+            <th >
+                <Link to={`/productdetails/${_id}`} className="text-sm text-blue-500 px-6 py-4 font-semibold dark:text-blue-500 hover:underline">View details</Link>
+            </th>
         </tr>
     </tbody>
     );

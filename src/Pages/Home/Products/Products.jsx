@@ -46,7 +46,7 @@ useEffect(()=>{
         <TabPanel >   
             
             
-<div className='grid grid-cols-4 gap-3 justify-between'>
+<div className='grid grid-cols-1 md:grid-cols-4 gap-3 justify-between'>
 
 
 
@@ -115,7 +115,7 @@ useEffect(()=>{
         <TabPanel >   
             
             
-<div className='grid grid-cols-4 gap-3 justify-between'>
+<div className='grid grid-cols-1 md:grid-cols-4 gap-3 justify-between'>
 
 
 
@@ -184,7 +184,7 @@ useEffect(()=>{
         <TabPanel >   
             
             
-<div className='grid grid-cols-4 gap-3 justify-between'>
+<div className='grid grid-cols-1 md:grid-cols-4 gap-3 justify-between'>
 
 
 

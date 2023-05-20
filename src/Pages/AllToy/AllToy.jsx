@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import SingleToyTable from './SingleToyTable';
 
 const AllToy = () => {
@@ -34,7 +34,7 @@ const AllToy = () => {
                         Price
                         </th>
                         <th scope="col" className="px-6 py-3 text-xl text-blue-500">
-                        View Details button
+                        View Details Button
                         </th>
                        
                     </tr>

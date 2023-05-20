@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 // import authContext from "../../Providers/AuthProviders.jsx"
 import { authContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 const MyToy = ({myToy,index,setToggle,toggle}) => {
 const {user} =useContext(authContext)
 console.log(user);
@@ -48,6 +49,17 @@ console.log(user);
   
   
     }
+
+
+
+
+
+
+
+
+
+
+  
     return (
         <tbody>
         <tr className="bg-white border-b text-center dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -100,9 +112,9 @@ console.log(user);
                     </svg>
                 </p>
 
-                <p title='Edit'>   <svg className='w-7 h-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" >
+                <Link to={`/update/${_id}`} title='Edit' >   <svg className='w-7 h-7' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" >
                     <path d="M16.364 3.636a2 2 0 0 1 2.828 0l1.172 1.172a2 2 0 0 1 0 2.828L9.172 20H4v-5.172L16.364 3.636zM18 8l-1 1L7 19H6v-1l9-9 1-1h2v2z"></path>
-                </svg></p>
+                </svg></Link>
 
             </td>
 

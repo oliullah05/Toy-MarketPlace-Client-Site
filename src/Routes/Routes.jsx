@@ -41,7 +41,9 @@ import UpdateToy from "../Pages/UpdateToy/UpdateToy";
             },
             {
               path:"/update/:id",
-              element:<PrivateRoute> <UpdateToy></UpdateToy>  </PrivateRoute>   
+              element:<PrivateRoute> <UpdateToy></UpdateToy>  </PrivateRoute>,
+              loader:({params})=>fetch(`http://localhost:5000/singletoy/${params.id}`)
+
             }
           ]
         },

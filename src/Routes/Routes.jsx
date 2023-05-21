@@ -13,6 +13,7 @@ import AddAToy from "../Pages/AddAToy/AddAToy";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import ProductDetails from "../Pages/Home/Products/ProductDetails";
 import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
+import Blog from "../Pages/Blog/Blog";
 
 
 
@@ -53,7 +54,11 @@ import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
               element:<PrivateRoute> <ProductDetails></ProductDetails>  </PrivateRoute>,
               loader:({params})=>fetch(`http://localhost:5000/singletoy/${params.id}`)
 
-            }
+            },
+            {
+              path:"/blog",
+              element:<Blog></Blog> 
+            },
           ]
         },
        {

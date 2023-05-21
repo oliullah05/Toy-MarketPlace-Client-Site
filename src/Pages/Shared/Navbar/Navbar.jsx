@@ -71,7 +71,7 @@ const handleLogOut = ()=>{
            
             {/* logo pic */}
 
-           {user.photoURL ? <img data-tooltip-id="my-tooltip"  data-tooltip-content={user.displayName} className="w-10 h-10 rounded-full" src={user.photoURL} alt='user photo' />:
+           {user.photoURL ? <img title={user?.displayName} data-tooltip-id="my-tooltip"  data-tooltip-content={user.displayName} className="w-10 h-10 rounded-full" src={user.photoURL} alt='user photo' />:
                     
            
 <div data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">

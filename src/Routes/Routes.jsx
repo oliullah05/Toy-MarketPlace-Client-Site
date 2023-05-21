@@ -12,6 +12,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import AddAToy from "../Pages/AddAToy/AddAToy";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import ProductDetails from "../Pages/Home/Products/ProductDetails";
+import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
 
 
 
@@ -21,6 +22,7 @@ import ProductDetails from "../Pages/Home/Products/ProductDetails";
         {
           path: "/",
           element:<Main></Main>,
+          errorElement:<ErrorPage></ErrorPage>,
           children:[
             {
               path:"/",
@@ -57,6 +59,7 @@ import ProductDetails from "../Pages/Home/Products/ProductDetails";
        {
         path:"/account",
         element:<AccountLayout></AccountLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
           {
             path:"/account/login",

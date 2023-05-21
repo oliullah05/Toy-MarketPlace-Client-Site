@@ -17,7 +17,7 @@ import gallery8 from "../../../Assets/childs photo/8.jpg"
 
 const Gallery = () => {
     return (
-       <section className='my-12'>
+       <section  className='my-12'>
         <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
         <h1 className="text-4xl w-full container text-center font-bold text-white  py-6 px-4 rounded-lg  bg-gradient-to-r from-blue-500 via-purple-500 to-pink-400">
       Race and Roll:  Endless Adventures <br /> with Car Toys

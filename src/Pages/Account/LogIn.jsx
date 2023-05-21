@@ -5,7 +5,7 @@ import { authContext } from '../../Providers/AuthProviders';
 import { ToastContainer, toast } from 'react-toastify';
 
 const LogIn = () => {
-
+document.title="Matico | Log In"
 const {logInByGoogle,logInByEmailPassword}=useContext(authContext)
 const navigate =useNavigate()
 

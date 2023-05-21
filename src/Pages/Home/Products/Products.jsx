@@ -14,7 +14,7 @@ const [tabIndex, setTabIndex] = useState(0);
 
 const [categoryData,setCategoryData]=useState([])
 console.log(categoryData);
-const [category ,setCategory]=useState("remote-car")
+const [category ,setCategory]=useState("regular-car")
 
 
 

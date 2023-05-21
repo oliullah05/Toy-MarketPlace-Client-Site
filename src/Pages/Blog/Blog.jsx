@@ -53,7 +53,7 @@ const Blog = () => {
 
 
 
-<div>
+<div >
 <h1 className="text-3xl fontbold">What is an access token and refresh token? How do they work and where should we store them on the client-side?</h1>
 <p>
 An access token is a credential that is used to access a protected thing like api in website . It is very popular to disallow get data from api . so that people cant't see other's important data . It serves as a proof of authentication and authorization . And A refresh token is token which create a new token for user when the original access token is expire. when the access expire  the refresh token can be sent to the authentication server to request a new access token without having to re-authenticate the user or application. We can store access token HTTP-only cookies or local or seasson storeges.

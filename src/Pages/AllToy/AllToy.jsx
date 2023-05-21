@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import SingleToyTable from './SingleToyTable';
 
+
 const AllToy = () => {
+    document.title="Matico | All Toys"
     const datum = useLoaderData()
 
 const [data ,setData]=useState(datum)
 
    const [searchText,setSearchText]=useState("")
     console.log(searchText);
-
+    
 
 
 
@@ -24,7 +26,7 @@ useEffect(()=>{
 
     return (
      <>
-     
+     {/* <ToastContainer></ToastContainer> */}
      
 <div className="flex items-center container mx-auto my-5 w-[25%]">   
     <label for="voice-search" className="sr-only">Search</label>

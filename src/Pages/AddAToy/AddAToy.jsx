@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 // const Swal = require('sweetalert2')
 
 const AddAToy = () => {
+  document.title="Matico | Add a Toy"
  
 const {user}= useContext(authContext)
 

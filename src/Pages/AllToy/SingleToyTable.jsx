@@ -1,13 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { authContext } from '../../Providers/AuthProviders';
+import { toast } from 'react-toastify';
+    import 'react-toastify/dist/ReactToastify.css';
 
 const SingleToyTable = ({singleData,index}) => {
-
+    const {user}=useContext(authContext)
+const navigate=useNavigate()
 const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,user_name,user_email,user_img}=singleData;
 
 
+// const notify = () => ;
+const logInAlert =()=>{
+  if(!user){
+    toast.error('🦄You have to log in first to view details!', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+   
+  }
+  
+    
+}
     return (
         <tbody>
+       
+           {/* <button onClick={notify}>Notify!</button> */}
         <tr className="bg-white border-b text-center dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
             <td className="w-4 p-4">
                #{index+1}
@@ -41,7 +65,7 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
                 <a href="" className=" text-black font-semibold dark:text-blue-500 ">$ {price}</a>
             </td>
             <th >
-                <Link to={`/productdetails/${_id}`} className="text-sm text-blue-500 px-6 py-4 font-semibold dark:text-blue-500 hover:underline">View details</Link>
+                <Link onClick={logInAlert} to={`/productdetails/${_id}`} className="text-sm text-blue-500 px-6 py-4 font-semibold dark:text-blue-500 hover:underline">View details</Link>
             </th>
         </tr>
     </tbody>

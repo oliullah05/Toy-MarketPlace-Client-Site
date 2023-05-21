@@ -30,7 +30,7 @@ import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
             },
             {
               path:"/alltoy",
-              element:<PrivateRoute><AllToy></AllToy></PrivateRoute>  ,
+              element:<AllToy></AllToy> ,
               loader:()=>fetch("http://localhost:5000/alltoys")  
             },
             {

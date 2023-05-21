@@ -3,6 +3,7 @@ import MyToy from './MyToy';
 import { authContext } from '../../Providers/AuthProviders';
 
 const MyToys = () => {
+    document.title="Matico | My Toys"
 const {user}=useContext(authContext)
 
 const [myToys,setMyToys]=useState([])

@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateToy = () => {
-
+  document.title="Matico | Update Toy"
 const {user}=useContext(authContext)
 
 const datum = useLoaderData()

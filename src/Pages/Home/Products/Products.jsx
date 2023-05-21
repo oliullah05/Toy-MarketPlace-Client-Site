@@ -1,19 +1,20 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Rating } from '@smastrom/react-rating'
-
 import '@smastrom/react-rating/style.css'
-
+import { toast } from 'react-toastify';
+    import 'react-toastify/dist/ReactToastify.css';
+import { authContext } from '../../../Providers/AuthProviders';
 const Products = () => {
-
+const {user}=useContext(authContext)
 
 const [tabIndex, setTabIndex] = useState(0);
 
 
 const [categoryData,setCategoryData]=useState([])
-console.log(categoryData);
+// console.log(categoryData);
 const [category ,setCategory]=useState("regular-car")
 
 
@@ -29,7 +30,21 @@ useEffect(()=>{
 
 
 
-
+const handleConditionalTost =()=>{
+    if(!user){
+        toast.error('🦄 You have to log in first to view details !', {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+       
+      }
+}
     return (
         <Tabs className="my-9 container mx-auto" selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
@@ -83,7 +98,7 @@ useEffect(()=>{
  
 
 
-        <div className="flex items-center justify-between pt-5">
+        <div onClick={handleConditionalTost} className="flex items-center justify-between pt-5">
             <span className="text-3xl font-bold text-gray-900 dark:text-white">${category?.price}</span>
             <Link to={`/productdetails/${category?._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
         </div>
@@ -154,7 +169,7 @@ useEffect(()=>{
 
         <div className="flex items-center justify-between pt-5">
             <span className="text-3xl font-bold text-gray-900 dark:text-white">${category?.price}</span>
-            <Link to={`/productdetails/${category?._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
+            <Link onClick={handleConditionalTost} to={`/productdetails/${category?._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
         </div>
     </div>
 </section>
@@ -223,7 +238,7 @@ useEffect(()=>{
 
         <div className="flex items-center justify-between pt-5">
             <span className="text-3xl font-bold text-gray-900 dark:text-white">${category?.price}</span>
-            <Link to={`/productdetails/${category?._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
+            <Link onClick={handleConditionalTost} to={`/productdetails/${category?._id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Details</Link>
         </div>
     </div>
 </section>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Navigate, useLoaderData, useNavigate } from 'react-router-dom';
 
 const ProductDetails = () => {
+    document.title="Matico | Toy Details"
     const navigate = useNavigate()
     const data = useLoaderData()
     const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,user_name,user_email,user_img}=data;

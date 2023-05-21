@@ -16,7 +16,7 @@ const {_id,toy_name,toy_img,price,category,quantity,rating,review,description,us
     // data.user_img=`${user.photoURL}`
   //   console.log(data)
   // console.log("ID ",_id);
-  fetch(`http://localhost:5000/singletoy/${_id}`,{
+  fetch(`https://assignment-11-server-site-oliullah05.vercel.app/singletoy/${_id}`,{
     method:"PUT",
     headers:{
       "content-type":"application/json"

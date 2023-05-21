@@ -24,7 +24,7 @@ console.log(user);
 
 
             if (result.isConfirmed) {
-                  fetch(`http://localhost:5000/alltoys/${id}`,{
+                  fetch(`https://assignment-11-server-site-oliullah05.vercel.app/alltoys/${id}`,{
                   method:"DELETE"
        })
        .then(res=>res.json())

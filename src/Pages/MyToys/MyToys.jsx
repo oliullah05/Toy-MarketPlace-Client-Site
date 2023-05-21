@@ -14,7 +14,7 @@ const [toggle ,setToggle]=useState(true)
 
 
 useEffect(()=>{
-    fetch(`http://localhost:5000/alltoys/${user?.email}`,{
+    fetch(`https://assignment-11-server-site-oliullah05.vercel.app/alltoys/${user?.email}`,{
         method:"GET"
     })
     .then(res=>res.json())

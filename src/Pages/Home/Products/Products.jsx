@@ -20,7 +20,7 @@ const [category ,setCategory]=useState("regular-car")
 
 
 useEffect(()=>{
-    fetch(`http://localhost:5000/category/${category}`)
+    fetch(`https://assignment-11-server-site-oliullah05.vercel.app/category/${category}`)
     .then(res=>res.json())
     .then(result=>{
      setCategoryData(result);

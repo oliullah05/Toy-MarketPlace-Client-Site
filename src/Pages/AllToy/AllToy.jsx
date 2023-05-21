@@ -16,7 +16,7 @@ const [data ,setData]=useState(datum)
 
 
 useEffect(()=>{
-    fetch(`http://localhost:5000/search/${searchText}`)
+    fetch(`https://assignment-11-server-site-oliullah05.vercel.app/search/${searchText}`)
     .then(res=>res.json())
     .then(data=>{
         setData(data);

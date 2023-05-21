@@ -32,7 +32,7 @@ import Blog from "../Pages/Blog/Blog";
             {
               path:"/alltoy",
               element:<AllToy></AllToy> ,
-              loader:()=>fetch("http://localhost:5000/alltoys")  
+              loader:()=>fetch("https://assignment-11-server-site-oliullah05.vercel.app/alltoys")  
             },
             {
               path:"/mytoys",
@@ -46,13 +46,13 @@ import Blog from "../Pages/Blog/Blog";
             {
               path:"/update/:id",
               element:<PrivateRoute> <UpdateToy></UpdateToy>  </PrivateRoute>,
-              loader:({params})=>fetch(`http://localhost:5000/singletoy/${params.id}`)
+              loader:({params})=>fetch(`https://assignment-11-server-site-oliullah05.vercel.app/singletoy/${params.id}`)
 
             },
             {
               path:"/productdetails/:id",
               element:<PrivateRoute> <ProductDetails></ProductDetails>  </PrivateRoute>,
-              loader:({params})=>fetch(`http://localhost:5000/singletoy/${params.id}`)
+              loader:({params})=>fetch(`https://assignment-11-server-site-oliullah05.vercel.app/singletoy/${params.id}`)
 
             },
             {

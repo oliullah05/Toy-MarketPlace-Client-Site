@@ -53,8 +53,8 @@ const Blog = () => {
 
 
 
-<div >
-<h1 className="text-3xl fontbold">What is an access token and refresh token? How do they work and where should we store them on the client-side?</h1>
+<div>
+<h1 className="text-3xl font-bold">What is an access token and refresh token? How do they work and where should we store them on the client-side?</h1>
 <p>
 An access token is a credential that is used to access a protected thing like api in website . It is very popular to disallow get data from api . so that people cant't see other's important data . It serves as a proof of authentication and authorization . And A refresh token is token which create a new token for user when the original access token is expire. when the access expire  the refresh token can be sent to the authentication server to request a new access token without having to re-authenticate the user or application. We can store access token HTTP-only cookies or local or seasson storeges.
 
@@ -63,13 +63,13 @@ An access token is a credential that is used to access a protected thing like ap
 </div>
 
 <div>
-<h1 className="text-3xl fontbold">What is MongoDB aggregate and how does it work?</h1>
+<h1 className="text-3xl font-bold py-5">What is MongoDB aggregate and how does it work?</h1>
 <p>
 MongoDB aggregate is a powerful feature that allows you to perform advanced data analysis and transformation on your data stored in a MongoDB database. It works by providing a way to process and combine multiple documents in a collection and perform various operations on them.
 
-Think of it like sorting, filtering, grouping, and manipulating data in a spreadsheet. With aggregate, you can perform similar operations on your MongoDB data.
+ Each stage takes the input from the previous stage and processes it further, allowing you to progressively transform and refine your data until you get the desired results. It's like building a pipeline of operations to manipulate and analyze your data.
 
-You provide a set of stages or steps to the aggregate command, and each stage performs a specific operation on the documents. These stages can include operations like matching documents based on certain criteria, sorting documents, grouping them by a specific field, calculating sums or averages, and even joining data from different collections.</p>
+Once the aggregate command is executed, MongoDB applies each stage in order and produces a final result based on the specified operations. This result can be a single document or a set of documents, depending on your requirements.</p>
 
 
 </div>

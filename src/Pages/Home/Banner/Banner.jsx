@@ -28,6 +28,7 @@ const Banner = () => {
     // </AutoplaySlider>
     /*md:h-[78vh] h-[40vh]*/
 <AutoplaySlider
+
   play={true}
   cancelOnInteraction={false} // should stop playing on user interaction
   interval={1000}

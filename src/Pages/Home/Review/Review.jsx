@@ -1,9 +1,19 @@
-import React from 'react';
 
+import AOS from 'aos';
+import React, { useEffect } from 'react';
+
+import 'aos/dist/aos.css';
 const Review = () => {
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,
+          easing: 'ease-in-out',
+          delay: 150,
+        });
+      }, []);
     return (
       
-<>
+<section data-aos="slide-up">
 <h1 className='text-4xl container mx-auto rounded-lg text-white  text-center py-9 font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-400'>What Our Customar Say</h1>
 <div className="grid mb-8 border container mx-auto border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2">
     <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700">
@@ -61,7 +71,7 @@ const Review = () => {
             </div>
         </figcaption>    
     </figure>
-</div></>
+</div></section>
 
     );
 };

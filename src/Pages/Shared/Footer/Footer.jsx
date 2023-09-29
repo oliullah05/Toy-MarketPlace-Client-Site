@@ -4,7 +4,7 @@ import message from "../../../Assets/social icons/message.png"
 import location from "../../../Assets/social icons/location.png"
 const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white dark:bg-gray-900">
+        <footer className="bg-gray-800 h-full text-white dark:bg-gray-900">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">

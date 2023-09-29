@@ -58,7 +58,7 @@ const {user}= useContext(authContext)
 
 
   return (
-    <form className="h-[80vh] container mx-auto  border-lime-500 border-8" onSubmit={handleSubmit(onSubmit)}>
+    <form className="h-full container mx-auto  border-lime-500 border-8" onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
       {/* <input  defaultValue="test" {...register("example")} /> */}
 
